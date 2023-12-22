@@ -1,6 +1,9 @@
 public class EffectiveSort<T> {
 
     private int[] arr;
+    public int[] getArr(){
+        return arr;
+    }
 
     public EffectiveSort(T[] arr){
         this.arr = new int[arr.length];
@@ -10,13 +13,13 @@ public class EffectiveSort<T> {
 
     public void quickSort(int[] arr, int low, int high) {
         if (low < high) {
-            int pivotIndex = partition(arr, low, high);
+            int pivotIndex = partition(low, high);
             quickSort(arr, low, pivotIndex - 1);
             quickSort(arr, pivotIndex + 1, high);
         }
     }
 
-    private int partition(int[] arr, int low, int high) {
+    private int partition(int low, int high) {
         int pivot = arr[high];
         int i = low - 1;
 
